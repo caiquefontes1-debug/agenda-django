@@ -1,12 +1,12 @@
 {
   "window.zoomLevel": 2,
   "editor.fontSize": 14,
-  "editor.hover.enabled": true,
+  "editor.hover.enabled": "on",
   "workbench.startupEditor": "none",
   "explorer.compactFolders": false,
-  "terminal.integrated.fontSize": 24,
+  "terminal.integrated.fontSize": 16,
   "editor.rulers": [80, 120],
-  "workbench.colorTheme": "OM Theme (Default Dracula Italic)",
+  "workbench.colorTheme": "Dracula Theme",
   "workbench.iconTheme": "material-icon-theme",
   "code-runner.executorMap": {
     "python": "clear ; python -u"
@@ -22,9 +22,9 @@
     "editor.insertSpaces": true,
     "editor.formatOnSave": true,
     "editor.codeActionsOnSave": {
-      "source.fixAll": true,
-      "source.fixAll.unusedImports": true,
-      "source.organizeImports": true
+      "source.fixAll": "explicit",
+      "source.fixAll.unusedImports": "explicit",
+      "source.organizeImports": "explicit"
     }
   },
   "python.languageServer": "Pylance",
@@ -59,6 +59,9 @@
   },
   "emmet.includeLanguages": {
     "django-html": "html"
-  }
-
+  },
+  
+  "python.analysis.packageIndexDepths": [
+    { "name": "sqlalchemy", "depth": 2 }
+  ]
 }
