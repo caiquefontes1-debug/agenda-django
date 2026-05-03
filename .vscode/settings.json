@@ -1,4 +1,10 @@
 {
+  
+  "python.analysis.autoImportCompletions": true,
+  "python.analysis.autoComplete": true,
+  "python.analysis.diagnosticMode": "workspace",
+  "python.languageServer": "Pylance",
+  "python.defaultInterpreterPath": "/usr/bin/python3",
   "window.zoomLevel": 2,
   "editor.fontSize": 14,
   "editor.hover.enabled": "on",
@@ -6,7 +12,7 @@
   "explorer.compactFolders": false,
   "terminal.integrated.fontSize": 16,
   "editor.rulers": [80, 120],
-  "workbench.colorTheme": "Dracula Theme",
+  "workbench.colorTheme": "Dark Modern",
   "workbench.iconTheme": "material-icon-theme",
   "code-runner.executorMap": {
     "python": "clear ; python -u"
@@ -28,6 +34,10 @@
     }
   },
   "python.languageServer": "Pylance",
+  "python.pythonPath": "/usr/bin/python",
+  "python.autoComplete.extraPaths": [
+    "${workspaceFolder}/customModule"
+  ],
   "python.formatting.autopep8Args": [
     "--indent-size=4",
     "--max-line-length=80"
@@ -47,13 +57,13 @@
     "reportUnknownLambdaType": "none",
     "reportUnknownParameterType": "none"
   },
-  "python.defaultInterpreterPath": "./venv/bin/python",
+  "python.defaultInterpreterPath": "python",
   "python.analysis.typeCheckingMode": "basic",
   "cSpell.enabled": true,
   "python.formatting.provider": "none",
 
-//   "editor.formatOnSave": true,
-//   "editor.defaultFormatter": "ms-python.vscode-pylance",
+ "editor.formatOnSave": true,
+ "editor.defaultFormatter": "ms-python.vscode-pylance",
   "files.associations": {
       "**/templates/**/*.html": "django-html"
   },
