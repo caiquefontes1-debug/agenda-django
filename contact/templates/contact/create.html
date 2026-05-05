@@ -1,0 +1,39 @@
+{% extends "global/base.html" %}
+
+{% block content %}
+    <div class="contact-create">
+        <h1 class="contact-create-title">
+            Criar contato
+        </h1>
+        <form class="contact-create-form" method="post">
+            {% csrf_token %}
+            <div class="contact-create-form-group">
+                <label for="first_name" class="contact-create-form-label">
+                    Nome
+                </label>
+                <input type="text" name="first_name" id="first_name" class="contact-create-form-input">
+            </div>
+            <div class="contact-create-form-group">
+                <label for="last_name" class="contact-create-form-label">
+                    Sobrenome
+                </label>
+                <input type="text" name="last_name" id="last_name" class="contact-create-form-input">
+            </div>
+            <div class="contact-create-form-group">
+                <label for="phone" class="contact-create-form-label">
+                    Telefone
+                </label>
+                <input type="text" name="phone" id="phone" class="contact-create-form-input">
+            </div>
+            <div class="contact-create-form-group">
+                <label for="email" class="contact-create-form-label">
+                    Email
+                </label>
+                <input type="email" name="email" id="email" class="contact-create-form-input">
+            </div>
+            <button type="submit" class="contact-create-form-button">
+                Criar contato
+            </button>
+        </form>
+    </div>
+{% endblock content %}

@@ -1,12 +1,20 @@
 from django.shortcuts import render, get_object_or_404, redirect
+from django.core.paginator import Paginator
 from django.db.models import Q
 from contact.models import Contact
 
 
 # Create your views here.
 def index(request):
-    contacts = Contact.objects.filter(show=True).order_by('-id')[:10]
-    context = {"contacts": contacts, 'site_title': 'Contatos - '}
+    # foi inserido dentro de base.html um bloco de paginação.
+    # assim é utilizado na view o paginator para pagina os contatos,
+    # e o page_obj é passado para o template, onde é utilizado para mostrar
+    # os contatos da pagina atual, e os links de paginação.
+    contacts = Contact.objects.filter(show=True).order_by('-id')
+    paginator = Paginator(contacts, 25)
+    page_number = request.GET.get('page')
+    page_obj = paginator.get_page(page_number)
+    context = {"page_obj": page_obj, 'site_title': 'Contatos - '}
     return render(
         request,
         'contact/index.html',
@@ -36,7 +44,11 @@ def search(request):
         )\
         .order_by('-id')
 
-        context = {"contacts": contacts, 'site_title': 'Pesquisa - '}
+        paginator = Paginator(contacts, 25)
+        page_number = request.GET.get('page')
+        page_obj = paginator.get_page(page_number)
+
+        context = {"page_obj": page_obj, 'site_title': 'Pesquisa - '}
         return render(
             request,
             'contact/index.html',
