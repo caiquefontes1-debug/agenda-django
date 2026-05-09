@@ -11,4 +11,5 @@ urlpatterns = [
 
     # contacts (CRUD)
     path('contact/<int:contact_id>/detail', view=views.contact, name='contact'),
+    path('contact/create/', view=views.create, name='create'),
 ]

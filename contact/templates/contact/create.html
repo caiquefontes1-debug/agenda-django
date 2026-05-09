@@ -1,39 +1,32 @@
 {% extends "global/base.html" %}
 
 {% block content %}
-    <div class="contact-create">
+    
+    <div class="form-wrapper">
         <h1 class="contact-create-title">
             Criar contato
         </h1>
-        <form class="contact-create-form" method="post">
+        <form class="contact-create-form" method="POST" action="{% url "contact:create" %}" enctype="multipart/form-data">
             {% csrf_token %}
-            <div class="contact-create-form-group">
-                <label for="first_name" class="contact-create-form-label">
-                    Nome
-                </label>
-                <input type="text" name="first_name" id="first_name" class="contact-create-form-input">
+
+            {% for field in form %}
+                <div class="form-content">
+                    <div class="form-group">
+                        <label for="{{ field.id_for_label }}" class="contact-create-form-label">{{ field.label }}</label>
+                        {{ field }}
+                        {% comment %} <input type="text" name="first_name" id="id_first_name" class="contact-create-form-input">     {% endcomment %}
+                    </div>
+                </div>
+            {% endfor %}
+
+            <div class="form-content">
+                <div class="form-group">
+                    <button type="submit" class="btn">
+                        Criar contato
+                    </button>
+                </div>
             </div>
-            <div class="contact-create-form-group">
-                <label for="last_name" class="contact-create-form-label">
-                    Sobrenome
-                </label>
-                <input type="text" name="last_name" id="last_name" class="contact-create-form-input">
-            </div>
-            <div class="contact-create-form-group">
-                <label for="phone" class="contact-create-form-label">
-                    Telefone
-                </label>
-                <input type="text" name="phone" id="phone" class="contact-create-form-input">
-            </div>
-            <div class="contact-create-form-group">
-                <label for="email" class="contact-create-form-label">
-                    Email
-                </label>
-                <input type="email" name="email" id="email" class="contact-create-form-input">
-            </div>
-            <button type="submit" class="contact-create-form-button">
-                Criar contato
-            </button>
+
         </form>
     </div>
 {% endblock content %}
