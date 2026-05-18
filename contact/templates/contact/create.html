@@ -6,7 +6,7 @@
         <h1 class="contact-create-title">
             Criar contato
         </h1>
-        <form class="contact-create-form" method="POST" action="{% url "contact:create" %}" enctype="multipart/form-data">
+        <form class="contact-create-form" method="POST" action="{{ form_action }}" enctype="multipart/form-data">
             {% csrf_token %}
 
             {% for field in form %}

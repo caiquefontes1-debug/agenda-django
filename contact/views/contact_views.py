@@ -56,7 +56,7 @@ def search(request):
         )
 
 
-def contact(request, contact_id):
+def contact_view(request, contact_id):
     # . get retorna um dicionario unico, ou seja, um unico contato
     # single_contact = Contact.objects.filter(pk=contact_id).first()
     single_contact = get_object_or_404(Contact, pk=contact_id, show=True)
